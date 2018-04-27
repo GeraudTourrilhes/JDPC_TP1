@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.model.Pizza;
 
 public class SupprimerPizzaService extends MenuService {
 
@@ -13,7 +14,10 @@ public class SupprimerPizzaService extends MenuService {
 		
 		System.out.println("Code de la pizza � supprimer:");
 		String codePizzaSupp = scanner.next();
+		
 		pizzaDao.deletePizza(codePizzaSupp);
+
+		
 
 	}
 

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import fr.pizzeria.model.Pizza;
+import fr.pizzeria.services.AuRevoirService;
 
 public class PizzaDao implements IPizzaDao {
 	
@@ -19,9 +20,9 @@ public class PizzaDao implements IPizzaDao {
 	}
 	
 	public List<Pizza> findAllPizzas() {
-		List<Pizza> pizzas = new ArrayList<Pizza>();
+		List<Pizza> pizzas = null;
 		try {
-
+			pizzas =  new ArrayList<Pizza>();
 			PreparedStatement selectPizzaSt = conn.prepareStatement("SELECT id, code, libelle, prix FROM PIZZA");
 			ResultSet resultats = selectPizzaSt.executeQuery();
 			
@@ -140,6 +141,16 @@ public class PizzaDao implements IPizzaDao {
 			 e.printStackTrace();
 		}
 		return exist;
+	}
+	
+	public void fermerConnexion()
+	{
+		try {
+			this.conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

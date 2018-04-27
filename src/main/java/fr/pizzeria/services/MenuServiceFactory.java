@@ -4,21 +4,20 @@ public class MenuServiceFactory {
 
 	public static MenuService getInstance(int choix){
 		
-		if (choix==1){
+		switch (choix) {
+		case 1:
 			return new ListerPizzasService();
-		}
-		else if (choix==2){
+		case 2:
 			return new AjouterPizzaService();
-		}
-		else if (choix==3){
+
+		case 3:
 			return new ModifierPizzaService();
-		}
-		else if (choix==4){
+			
+		case 4:
 			return new SupprimerPizzaService();
-		}
-		else if (choix==99){
+
+		default:
 			return new AuRevoirService();
 		}
-		return null;
 	}
 }

@@ -47,7 +47,7 @@ public class PizzeriaAdminConsoleApp {
 		
 		/* Initialisation du scanner */
 		Scanner scanner = new Scanner(System.in);
-		int choix = 2;
+		int choix = 0;
 		
 
 		do {
@@ -65,8 +65,8 @@ public class PizzeriaAdminConsoleApp {
 			service.executeUC(scanner, pizzaDao);
 
 			
-		} while(choix!=99);
-		
+		} while(choix<5);
+		pizzaDao.fermerConnexion();
 		scanner.close();
 		
 	}
