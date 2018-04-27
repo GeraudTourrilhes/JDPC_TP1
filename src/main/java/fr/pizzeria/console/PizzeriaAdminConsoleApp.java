@@ -56,6 +56,8 @@ public class PizzeriaAdminConsoleApp {
 			println("2. Ajouter une nouvelle pizza ");
 			println("3. Mettre � jour une pizza ");
 			println("4. Supprimer une pizza ");
+			println("5. Initialiser base de données");
+			println("6. Supprimer toutes les pizza");
 			println("99. Sortir ");
 	
 			System.out.print("Veuillez choisir une option:");
@@ -65,7 +67,7 @@ public class PizzeriaAdminConsoleApp {
 			service.executeUC(scanner, pizzaDao);
 
 			
-		} while(choix<5);
+		} while(choix<7);
 		pizzaDao.fermerConnexion();
 		scanner.close();
 		

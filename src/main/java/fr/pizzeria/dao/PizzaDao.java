@@ -153,4 +153,33 @@ public class PizzaDao implements IPizzaDao {
 		}
 	}
 
+	public void initaliserListePizza() {
+		saveNewPizza(new Pizza("PEP", "Pépéroni", 12.50));
+		saveNewPizza(new Pizza("MAR", "Margherita", 14.00));
+		saveNewPizza(new Pizza("REIN", "La Reine", 11.50));
+		saveNewPizza(new Pizza("FRO", "La 4 fromages", 12.00));
+		saveNewPizza(new Pizza("CAN", "La cannibale", 12.50));
+		saveNewPizza(new Pizza("SAV", "La savoyarde", 13.00));
+		saveNewPizza(new Pizza("ORI", "L'orientale", 13.50));
+		saveNewPizza(new Pizza("IND", "L'indienne", 14.00));
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void deleteAllPizza() {
+		try {
+			
+			PreparedStatement deletePizzaSt = conn.prepareStatement("delete FROM PIZZA");
+			deletePizzaSt.executeQuery();
+			
+			
+		        
+		    } catch (SQLException e) {
+
+		      e.printStackTrace();
+
+		    }
+		
+	}
+
 }

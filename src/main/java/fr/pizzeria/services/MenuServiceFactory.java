@@ -16,6 +16,12 @@ public class MenuServiceFactory {
 		case 4:
 			return new SupprimerPizzaService();
 
+		case 5:
+			return new InitialiserPizzaService();
+			
+		case 6:
+			return new SupprimerToutesPizzaService();
+
 		default:
 			return new AuRevoirService();
 		}
