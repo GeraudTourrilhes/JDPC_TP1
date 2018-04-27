@@ -26,9 +26,9 @@ public class PizzaDao implements IPizzaDao {
 	}
 	
 	public List<Pizza> findAllPizzas() {
-		List<Pizza> pizzas = null;
+		List<Pizza> pizzas = new ArrayList<Pizza>();;
 		try {
-			pizzas =  new ArrayList<Pizza>();
+			
 			PreparedStatement selectPizzaSt = conn.prepareStatement("SELECT id, code, libelle, prix FROM PIZZA");
 			ResultSet resultats = selectPizzaSt.executeQuery();
 			

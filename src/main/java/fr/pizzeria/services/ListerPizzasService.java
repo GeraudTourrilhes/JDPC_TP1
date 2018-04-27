@@ -12,12 +12,13 @@ public class ListerPizzasService extends MenuService {
 	public void executeUC(Scanner scanner, PizzaDao pizzaDao) {
 		System.out.println("Lister les pizzas");
 
-		try{
+		if(!pizzaDao.findAllPizzas().isEmpty())
+		{
 			for (Pizza pizza: pizzaDao.findAllPizzas()){
 				System.out.println(pizza);
 			}
 		}
-		catch (NullPointerException e) {
+		else {
 			System.out.println("Aucune pizza n'existe");
 		}
 		
