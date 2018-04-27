@@ -17,6 +17,12 @@ public class PizzaDao implements IPizzaDao {
 	public PizzaDao(Connection conn)
 	{
 		this.conn = conn;
+		try {
+			this.conn.setAutoCommit(false);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public List<Pizza> findAllPizzas() {
@@ -37,6 +43,12 @@ public class PizzaDao implements IPizzaDao {
 		    } catch (SQLException e) {
 
 		      e.printStackTrace();
+		      try {
+					this.conn.rollback();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
 		    }
 		return pizzas;
@@ -57,6 +69,12 @@ public class PizzaDao implements IPizzaDao {
 		    } catch (SQLException e) {
 
 		      e.printStackTrace();
+		      try {
+					this.conn.rollback();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
 		    }
 		
@@ -79,6 +97,12 @@ public class PizzaDao implements IPizzaDao {
 			    } catch (SQLException e) {
 	
 			      e.printStackTrace();
+			      try {
+						this.conn.rollback();
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 	
 			    }
 		}
@@ -99,6 +123,12 @@ public class PizzaDao implements IPizzaDao {
 			    } catch (SQLException e) {
 	
 			      e.printStackTrace();
+			      try {
+						this.conn.rollback();
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 	
 			    }
 		}
@@ -121,6 +151,12 @@ public class PizzaDao implements IPizzaDao {
 			    } catch (SQLException e) {
 	
 			      e.printStackTrace();
+			      try {
+						this.conn.rollback();
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 	
 			    }
 		}
@@ -177,9 +213,24 @@ public class PizzaDao implements IPizzaDao {
 		    } catch (SQLException e) {
 
 		      e.printStackTrace();
+		      try {
+					this.conn.rollback();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
 		    }
 		
+	}
+	
+	public void commit(){
+		try {
+			this.conn.commit();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

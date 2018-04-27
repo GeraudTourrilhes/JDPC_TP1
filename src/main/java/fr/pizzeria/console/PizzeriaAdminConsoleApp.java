@@ -47,6 +47,7 @@ public class PizzeriaAdminConsoleApp {
 		
 		/* Initialisation du scanner */
 		Scanner scanner = new Scanner(System.in);
+		int nbChoix = 8;
 		int choix = 0;
 		
 
@@ -58,7 +59,8 @@ public class PizzeriaAdminConsoleApp {
 			println("4. Supprimer une pizza ");
 			println("5. Initialiser base de données");
 			println("6. Supprimer toutes les pizza");
-			println("99. Sortir ");
+			println("7. Envoyer les changements");
+			println("8. Sortir ");
 	
 			System.out.print("Veuillez choisir une option:");
 			choix = scanner.nextInt();
@@ -67,7 +69,7 @@ public class PizzeriaAdminConsoleApp {
 			service.executeUC(scanner, pizzaDao);
 
 			
-		} while(choix<7);
+		} while(choix<nbChoix);
 		pizzaDao.fermerConnexion();
 		scanner.close();
 		

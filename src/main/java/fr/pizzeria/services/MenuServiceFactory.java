@@ -21,6 +21,9 @@ public class MenuServiceFactory {
 			
 		case 6:
 			return new SupprimerToutesPizzaService();
+			
+		case 7:
+			return new CommitService();
 
 		default:
 			return new AuRevoirService();
